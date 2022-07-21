@@ -24,7 +24,7 @@ const SearchMovie = () => {
     const validContent = <>
         {isError && <p>Error..</p>}
         {isLoading && <p>Loading...</p>}
-        {searchedMovie.length === 0 && <p>No Movie Found...</p>}
+        {searchedMovie.length === 0 && !isLoading && <p>No Movie Found...</p>}
         {searchedMovie.length > 0 && searchedMovie.map(movie => {
             return <Movie key={movie.id} id={movie.id} title={movie.title} imageSrc={movie.poster_path} imageAlt={movie.backdrop_path} caption={movie.overview} voteAverage={movie.vote_average.toFixed(1)} />
         })}
